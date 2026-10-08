@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnABle AB | Universal Host-Receptor Decoy Platform</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 10% 5rem 10%;
+            background: linear-gradient(180deg, var(--white) 0%, var(--bg-light) 100%);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background-color: #dbeafe;
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Grid Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 10%;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <nav>
+        <div class="logo">EnABle <span>AB</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#technology">Technology</a>
+            <a href="#pipeline">Pipeline</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <span class="hero-badge">Biodefense & Global Health Innovation</span>
+        <h1>Mutation-Agnostic Medical Countermeasures & Diagnostics</h1>
+        <p>EnABle AB leverages functional entry-mimicking host-receptor decoy platforms to overcome target-driven escape in high-consequence viral threats.</p>
+        <a href="#contact" class="btn-primary">Partner With Us</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About EnABle AB</h2>
+            <p>Advancing next-generation biodefense solutions from South Korea</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>To eliminate diagnostic and therapeutic failure caused by rapid antigenic drift, delivering universal protection against emerging and re-emerging infectious pathogens.</p>
+            </div>
+            <div class="card">
+                <h3>Core Approach</h3>
+                <p>By mimicking conserved human host receptors, our platform captures viral glycoproteins at essential functional binding interfaces that viruses structurally cannot mutate without sacrificing infectivity.</p>
+            </div>
+            <div class="card">
+                <h3>R&D Capabilities</h3>
+                <p>Equipped with in-house structural modeling, recombinant protein engineering, and dedicated wet-lab validation infrastructure focused on rapid proof-of-concept execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Platform -->
+    <section id="technology" style="background-color: var(--bg-light);">
+        <div class="section-title">
+            <h2>The Decoy Platform</h2>
+            <p>Engineered host-pathogen interface capture system</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Mechanism</span>
+                <h3>Broad-Spectrum Binding</h3>
+                <p>Utilizes recombinant soluble receptor domain constructs engineered for optimized affinity and structural stability against target viral entry proteins.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Diagnostics</span>
+                <h3>Equipment-Free POC</h3>
+                <p>Integrated into lateral flow assay (LFA) formats with self-activating sample preparation for decentralized, rapid point-of-care deployment in resource-limited settings.</p>
+            </div>
+            <div class="card">
+                <span class="tag">Therapeutics</span>
+                <h3>Decoy Fusion Modules</h3>
+                <p>Exploring dual-action biotherapeutic concepts combining receptor decoy domains with targeted delivery and enzymatic cleavers to address complex infectious and systemic challenges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Overview -->
+    <section id="pipeline">
+        <div class="section-title">
+            <h2>Development Pipeline</h2>
+            <p>Targeting critical public health priorities</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">AVR-301 • Diagnostics</span>
+                <h3>Pan-Orthoebolavirus Rapid Assay</h3>
+                <p>A broad-spectrum, host-receptor decoy LFA designed for pan-species detection across major Orthoebolaviruses without relying on strain-specific monoclonal antibodies.</p>
+            </div>
+            <div class="card">
+                <span class="tag">AVR-Therapeutics • Concept</span>
+                <h3>Universal Viral Neutralization</h3>
+                <p>Pre-clinical decoy modules engineered to block viral cell entry mechanisms, offering a mutation-proof intervention strategy for emerging threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Partnership -->
+    <section id="contact" class="contact">
+        <h2>Global R&D Collaboration</h2>
+        <p>We actively collaborate with international biodefense agencies, research institutes, and industry partners to accelerate technology deployment.</p>
+        <div class="contact-info">
+            <p style="color: var(--white);">EnABle AB | Republic of Korea</p>
+            <p style="color: #60a5fa; margin-top: 0.5rem;">Contact: contact@enable-ab.com</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 EnABle AB. All rights reserved. Non-confidential corporate overview.</p>
+    </footer>
+
+</body>
+</html>
