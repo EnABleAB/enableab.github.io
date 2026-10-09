@@ -1,312 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnABle AB | Universal Host-Receptor Decoy Platform</title>
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --border: #e2e8f0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EnABle AB is a biotechnology company developing advanced platform technologies for infectious disease diagnostics and therapeutics.">
+  <meta name="theme-color" content="#06111d">
+  <title>EnABle AB | Advanced Biotech Platform</title>
+  <style>
+    :root{
+      --bg:#06111d;
+      --bg2:#08192a;
+      --bg3:#0b2236;
+      --panel:rgba(12,28,45,.82);
+      --panel2:rgba(10,24,39,.92);
+      --line:rgba(129,193,223,.16);
+      --line-strong:rgba(129,193,223,.28);
+      --text:#e8f4fb;
+      --muted:#9bb4c7;
+      --muted2:#7e99ad;
+      --accent:#66e3d4;
+      --accent2:#63a7ff;
+      --accent3:#9cf3ff;
+      --max:1180px;
+      --shadow:0 20px 50px rgba(0,0,0,.33);
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#102845 0%,#07111d 35%,#050d17 100%);color:var(--text);line-height:1.65}
+    a{color:inherit}
+    img{max-width:100%}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin-inline:auto}
+    .section{padding:92px 0;position:relative}
+    .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.77rem;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--accent)}
+    .kicker:before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+    .section-head{max-width:760px;margin-bottom:38px}
+    .section-head h2{margin:14px 0 14px;font-size:clamp(2rem,3.4vw,3rem);line-height:1.16;letter-spacing:-.045em}
+    .section-head p{margin:0;color:var(--muted);font-size:1.02rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .card{background:linear-gradient(180deg,rgba(11,28,45,.94),rgba(8,20,34,.96));border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+    .card .num{display:inline-block;color:var(--accent);font-size:.79rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .card h3{margin:14px 0 12px;font-size:1.18rem;letter-spacing:-.02em}
+    .card p{margin:0;color:var(--muted);font-size:.95rem}
 
-        body {
-            color: var(--text-main);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+    .topbar{position:sticky;top:0;z-index:30;background:rgba(4,11,19,.72);border-bottom:1px solid rgba(162,205,229,.12);backdrop-filter:blur(16px)}
+    .top-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:1.28rem;font-weight:850;letter-spacing:-.04em}
+    .brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#10385d,#1f8fb0 60%,#63e3d5);box-shadow:0 8px 20px rgba(58,170,203,.32);font-size:1rem}
+    .brand em,.brand .brand-highlight{font-style:normal;color:var(--accent)}
+    .nav{display:flex;align-items:center;gap:28px}
+    .nav a{text-decoration:none;color:#caddeb;font-size:.92rem;font-weight:650}
+    .nav a:hover{color:#fff}
+    .nav .cta{padding:10px 16px;border:1px solid rgba(103,225,214,.26);border-radius:999px;background:rgba(102,227,212,.08);color:#e9ffff}
+    .mobile-nav{display:none}
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 100;
-        }
+    .hero{position:relative;overflow:hidden;padding:36px 0 90px;background:
+      radial-gradient(circle at 15% 25%, rgba(76,131,255,.16), transparent 28%),
+      radial-gradient(circle at 82% 18%, rgba(94,232,223,.15), transparent 28%),
+      linear-gradient(180deg,#06111d 0%,#071522 50%,#05101a 100%)}
+    .hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(138,214,245,.11) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(180deg,black 20%,transparent 100%);pointer-events:none;opacity:.7}
+    .hero:after{content:"";position:absolute;inset:-20% -10% auto auto;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(102,227,212,.18),transparent 68%);filter:blur(18px);pointer-events:none}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center;padding-top:40px}
+    .hero-copy h1{margin:18px 0 18px;font-size:clamp(2.7rem,5vw,4.8rem);line-height:1.05;letter-spacing:-.048em;max-width:690px;font-weight:350}
+    .hero-copy h1 .grad{background:linear-gradient(90deg,#dffcff 0%,#89f1e6 35%,#74b8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy p{max-width:620px;margin:0 0 28px;color:#c4d6e4;font-size:1.08rem}
+    .hero-buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:12px;text-decoration:none;font-weight:760;font-size:.95rem;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,#66e3d4,#63a7ff);color:#072035;box-shadow:0 10px 28px rgba(91,184,244,.24)}
+    .btn-secondary{border:1px solid rgba(174,224,246,.22);background:rgba(255,255,255,.03);color:#eef9ff}
+    .hero-note{margin-top:30px;color:var(--muted2);font-size:.83rem}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
+    .hero-visual{position:relative;min-height:520px;display:grid;place-items:center}
+    .tech-frame{position:relative;width:min(100%,560px);aspect-ratio:1/1;border-radius:28px;background:linear-gradient(180deg,rgba(10,27,44,.76),rgba(6,16,27,.92));border:1px solid rgba(157,216,241,.14);box-shadow:0 28px 70px rgba(0,0,0,.42);overflow:hidden}
+    .tech-frame:before{content:"";position:absolute;inset:18px;border-radius:22px;border:1px solid rgba(124,205,239,.1)}
+    .tech-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(99,167,255,.11), transparent 40%), radial-gradient(circle at 50% 50%, rgba(102,227,212,.08), transparent 66%);pointer-events:none}
+    .panel-label{position:absolute;top:18px;left:18px;z-index:3;padding:8px 12px;border-radius:999px;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:rgba(98,160,255,.12);border:1px solid rgba(111,177,255,.18);color:#d7efff}
+    .visual-caption{position:absolute;left:24px;right:24px;bottom:20px;z-index:3;text-align:center;font-size:.8rem;letter-spacing:.08em;color:#c6dbea;text-transform:uppercase}
+    .orbit-svg{position:absolute;inset:0;width:100%;height:100%}
 
-        .logo span {
-            color: var(--accent);
-        }
+    .stats{margin-top:-28px;position:relative;z-index:2}
+    .stats-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stat{padding:22px 22px;background:linear-gradient(180deg,rgba(9,25,40,.92),rgba(7,18,31,.96));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .stat strong{display:block;margin-bottom:6px;font-size:1rem}
+    .stat span{display:block;color:var(--muted);font-size:.88rem}
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 2rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
+    .platform{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+    .platform-visual{position:relative;min-height:380px;background:linear-gradient(160deg,rgba(10,29,47,.96),rgba(7,18,30,.96));border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .platform-visual .bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(149,214,244,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(149,214,244,.06) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.95),transparent 100%)}
+    .platform-visual svg{position:absolute;inset:0;width:100%;height:100%}
+    .platform-copy .feature{padding:18px 0;border-bottom:1px solid rgba(162,205,229,.12)}
+    .platform-copy .feature:last-child{border-bottom:0}
+    .platform-copy strong{display:block;font-size:1.04rem}
+    .platform-copy p{margin:7px 0 0;color:var(--muted);font-size:.95rem}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+    .pipeline-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .pipeline-card{background:linear-gradient(180deg,rgba(11,27,44,.96),rgba(8,19,32,.96));border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .pipeline-top{padding:30px}
+    .tag{display:inline-block;padding:6px 11px;border-radius:999px;background:rgba(102,227,212,.1);border:1px solid rgba(102,227,212,.16);color:#cdfbf4;text-transform:uppercase;font-size:.72rem;font-weight:800;letter-spacing:.09em}
+    .pipeline-card h3{margin:16px 0 10px;font-size:1.34rem;line-height:1.28;letter-spacing:-.02em}
+    .pipeline-card p{margin:0;color:var(--muted);font-size:.95rem}
+    .pipeline-bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:15px 30px;background:rgba(255,255,255,.025);border-top:1px solid var(--line);color:#a8bfd0;font-size:.85rem}
+    .stage{font-weight:800;color:#93eef1}
 
-        /* Hero Section */
-        .hero {
-            padding: 6rem 10% 5rem 10%;
-            background: linear-gradient(180deg, var(--white) 0%, var(--bg-light) 100%);
-            text-align: center;
-        }
+    .partner-band{padding:42px 48px;border-radius:24px;background:linear-gradient(135deg,rgba(10,29,47,.95),rgba(9,49,76,.92));border:1px solid var(--line-strong);box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:28px}
+    .partner-band h2{margin:14px 0 12px;font-size:2rem;line-height:1.18;letter-spacing:-.04em}
+    .partner-band p{margin:0;max-width:720px;color:#c0d4e2}
 
-        .hero-badge {
-            display: inline-block;
-            padding: 0.35rem 1rem;
-            background-color: #dbeafe;
-            color: var(--accent);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
+    .contact-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}
+    .contact-card{background:linear-gradient(180deg,rgba(12,28,45,.96),rgba(7,18,31,.96));border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+    .contact-card small{display:block;margin-bottom:10px;color:#8eb5ca;text-transform:uppercase;font-weight:800;letter-spacing:.12em}
+    .contact-card a{display:inline-block;color:#e7fdff;text-decoration:none;font-size:1.12rem;font-weight:780;overflow-wrap:anywhere}
+    .contact-card .loc{margin-top:18px;color:var(--muted);font-size:.95rem}
 
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            line-height: 1.25;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
+    footer{padding:28px 0;border-top:1px solid rgba(158,207,233,.12);background:rgba(4,10,17,.9)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:.83rem;color:#a8bfd0}
+    footer strong{color:#fff}
+    footer a{text-decoration:none;color:#9cefe2}
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            max-width: 750px;
-            margin: 0 auto 2.5rem auto;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--accent);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-        }
-
-        /* Grid Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            color: #94a3b8;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-info {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            padding: 2rem 10%;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-        }
-    </style>
+    @media (max-width:980px){
+      .hero-inner,.platform,.contact-wrap{grid-template-columns:1fr;gap:34px}
+      .hero-copy h1{max-width:unset}
+      .tech-frame{max-width:520px;margin-inline:auto}
+    }
+    @media (max-width:760px){
+      .nav{display:none}
+      .mobile-nav{display:block;position:relative}
+      .mobile-nav summary{list-style:none;cursor:pointer;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-weight:750;color:#eef7ff}
+      .mobile-nav summary::-webkit-details-marker{display:none}
+      .mobile-nav[open] .mobile-links{display:grid;position:absolute;right:0;top:48px;width:210px;background:rgba(7,17,28,.98);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      .mobile-links a{padding:12px 14px;text-decoration:none;border-bottom:1px solid rgba(158,207,233,.09)}
+      .mobile-links a:last-child{border-bottom:0}
+      .stats-inner,.grid-3,.pipeline-grid{grid-template-columns:1fr}
+      .partner-band,.footer-inner{display:block}
+      .partner-band .btn{margin-top:20px}
+      .section{padding:72px 0}
+      .hero{padding-bottom:70px}
+      .hero-copy h1{font-size:clamp(2.45rem,11vw,3.9rem)}
+      .hero-visual{min-height:auto}
+      .tech-frame{width:min(100%,480px)}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  </style>
 </head>
 <body>
-
-    <!-- Header / Nav -->
-    <nav>
-        <div class="logo">EnABle <span>AB</span></div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#technology">Technology</a>
-            <a href="#pipeline">Pipeline</a>
-            <a href="#contact">Contact</a>
+  <header class="topbar">
+    <div class="wrap top-inner">
+      <a class="brand" href="#home" aria-label="EnABle AB home">
+        <span class="brand-mark">✦</span>
+        <span>En<span class="brand-highlight">AB</span>le <em>AB</em></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#technology">Technology</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+      <details class="mobile-nav">
+        <summary>☰ Menu</summary>
+        <div class="mobile-links">
+          <a href="#about">About</a>
+          <a href="#technology">Technology</a>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#partnerships">Partnerships</a>
+          <a href="#contact">Contact</a>
         </div>
-    </nav>
+      </details>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <span class="hero-badge">Biodefense & Global Health Innovation</span>
-        <h1>Mutation-Agnostic Medical Countermeasures & Diagnostics</h1>
-        <p>EnABle AB leverages functional entry-mimicking host-receptor decoy platforms to overcome target-driven escape in high-consequence viral threats.</p>
-        <a href="#contact" class="btn-primary">Partner With Us</a>
-    </header>
+  <section class="hero" id="home">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="kicker">Biotechnology · Platform innovation · Global health</div>
+        <h1>Advanced biotech platforms for <span class="grad">next-generation infectious disease solutions.</span></h1>
+        <p>EnABle AB is a biotechnology company exploring host–pathogen interface biology to develop research-stage diagnostics and therapeutics with broad applicability against emerging viral threats.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#technology">Explore the platform →</a>
+          <a class="btn btn-secondary" href="#contact">Partner with us</a>
+        </div>
+        <div class="hero-note">Research-stage corporate overview · non-confidential</div>
+      </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-title">
-            <h2>About EnABle AB</h2>
-            <p>Advancing next-generation biodefense solutions from South Korea</p>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="tech-frame">
+          <div class="panel-label">Advanced Biotech Platform</div>
+          <svg class="orbit-svg" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#79f0df"/>
+                <stop offset="1" stop-color="#6aaeff"/>
+              </linearGradient>
+              <radialGradient id="glowA">
+                <stop offset="0" stop-color="#8ef4ea" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#8ef4ea" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="glowB">
+                <stop offset="0" stop-color="#72b3ff" stop-opacity=".45"/>
+                <stop offset="1" stop-color="#72b3ff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="280" cy="280" r="248" fill="url(#glowA)"/>
+            <circle cx="280" cy="280" r="196" fill="none" stroke="#7adce3" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 12"/>
+            <circle cx="280" cy="280" r="148" fill="none" stroke="#73aaff" stroke-opacity=".24" stroke-width="2" stroke-dasharray="6 14"/>
+            <ellipse cx="280" cy="280" rx="208" ry="108" fill="none" stroke="#91ecf1" stroke-opacity=".22" stroke-width="2" transform="rotate(24 280 280)"/>
+            <ellipse cx="280" cy="280" rx="208" ry="108" fill="none" stroke="#7eb9ff" stroke-opacity=".18" stroke-width="2" transform="rotate(-24 280 280)"/>
+            <g stroke="url(#lineA)" stroke-width="4" fill="none" stroke-linecap="round" opacity=".95">
+              <path d="M132 332 196 251 281 226 370 253 429 328 357 388 262 396 184 381 132 332Z"/>
+              <path d="M196 251 231 160 334 150 398 214 370 253"/>
+              <path d="M231 160 281 226 334 150"/>
+              <path d="M281 226 262 396"/>
+              <path d="M196 251 262 396 357 388 429 328"/>
+            </g>
+            <g>
+              <circle cx="132" cy="332" r="13" fill="#8cf5ea"/>
+              <circle cx="196" cy="251" r="14" fill="#9feeff"/>
+              <circle cx="281" cy="226" r="21" fill="#e4ffff"/>
+              <circle cx="370" cy="253" r="15" fill="#8bbdfd"/>
+              <circle cx="429" cy="328" r="14" fill="#8cf5ea"/>
+              <circle cx="357" cy="388" r="15" fill="#97dfff"/>
+              <circle cx="262" cy="396" r="17" fill="#8cf5ea"/>
+              <circle cx="184" cy="381" r="13" fill="#8bbdfd"/>
+              <circle cx="231" cy="160" r="12" fill="#8cf5ea"/>
+              <circle cx="334" cy="150" r="14" fill="#9dd6ff"/>
+              <circle cx="398" cy="214" r="12" fill="#8cf5ea"/>
+            </g>
+            <circle cx="280" cy="280" r="74" fill="url(#glowB)"/>
+            <g fill="#d7f5ff" opacity=".8">
+              <circle cx="91" cy="215" r="4"/>
+              <circle cx="165" cy="110" r="5"/>
+              <circle cx="456" cy="195" r="4"/>
+              <circle cx="448" cy="411" r="5"/>
+              <circle cx="164" cy="460" r="4"/>
+            </g>
+          </svg>
+          <div class="visual-caption">Conceptual molecular network · diagnostics and therapeutics</div>
         </div>
-        <div class="grid">
-            <div class="card">
-                <h3>Our Mission</h3>
-                <p>To eliminate diagnostic and therapeutic failure caused by rapid antigenic drift, delivering universal protection against emerging and re-emerging infectious pathogens.</p>
-            </div>
-            <div class="card">
-                <h3>Core Approach</h3>
-                <p>By mimicking conserved human host receptors, our platform captures viral glycoproteins at essential functional binding interfaces that viruses structurally cannot mutate without sacrificing infectivity.</p>
-            </div>
-            <div class="card">
-                <h3>R&D Capabilities</h3>
-                <p>Equipped with in-house structural modeling, recombinant protein engineering, and dedicated wet-lab validation infrastructure focused on rapid proof-of-concept execution.</p>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap stats-inner">
+      <div class="stat"><strong>Platform-oriented science</strong><span>Research built around functional host–pathogen biology</span></div>
+      <div class="stat"><strong>Diagnostics & therapeutics</strong><span>Dual application opportunities across assay and intervention concepts</span></div>
+      <div class="stat"><strong>Collaboration-ready</strong><span>Designed for global research, translational, and strategic partnerships</span></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">01 / About EnABle AB</div>
+          <h2>Science-driven innovation with a future-facing biotech identity.</h2>
+          <p>EnABle AB is building a focused biotechnology platform centered on rational molecular design, functional interface biology, and translational research concepts for high-priority infectious diseases.</p>
         </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="num">Mission</div>
+            <h3>Overcome viral variability</h3>
+            <p>We explore platform concepts intended to remain meaningful even as viral pathogens evolve, helping address limitations of narrowly strain-specific approaches.</p>
+          </article>
+          <article class="card">
+            <div class="num">Core Strategy</div>
+            <h3>Target functional biology</h3>
+            <p>Our R&amp;D approach focuses on biologically important interaction interfaces that may support robust diagnostic capture and therapeutic design.</p>
+          </article>
+          <article class="card">
+            <div class="num">Execution</div>
+            <h3>Rapid proof-of-concept research</h3>
+            <p>We combine structure-guided design, recombinant engineering, and wet-lab evaluation to advance high-value early-stage concepts efficiently.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Technology Platform -->
-    <section id="technology" style="background-color: var(--bg-light);">
-        <div class="section-title">
-            <h2>The Decoy Platform</h2>
-            <p>Engineered host-pathogen interface capture system</p>
+    <section class="section" id="technology">
+      <div class="wrap platform">
+        <div class="platform-visual">
+          <div class="bg-grid"></div>
+          <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="pLine" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#7ef3e6"/>
+                <stop offset="1" stop-color="#6caeff"/>
+              </linearGradient>
+            </defs>
+            <g opacity=".88" stroke="url(#pLine)" stroke-width="4" fill="none" stroke-linecap="round">
+              <path d="M98 266c54-5 74-54 124-56 57-2 72 55 132 55 57 0 71-46 126-62"/>
+              <path d="M98 315c50-10 73-41 109-38 43 3 62 48 118 45 62-3 69-63 155-80" opacity=".55"/>
+            </g>
+            <g>
+              <circle cx="98" cy="266" r="18" fill="#8ef4ea"/>
+              <circle cx="222" cy="211" r="17" fill="#9ddcff"/>
+              <circle cx="354" cy="265" r="22" fill="#e0ffff"/>
+              <circle cx="480" cy="203" r="17" fill="#8ef4ea"/>
+              <circle cx="98" cy="315" r="13" fill="#75b8ff" opacity=".95"/>
+              <circle cx="207" cy="277" r="12" fill="#8ef4ea" opacity=".95"/>
+              <circle cx="325" cy="322" r="15" fill="#75b8ff" opacity=".95"/>
+              <circle cx="480" cy="235" r="11" fill="#8ef4ea" opacity=".95"/>
+            </g>
+            <g stroke="#abdaf1" stroke-opacity=".34" stroke-width="3" fill="none">
+              <circle cx="472" cy="176" r="70" stroke-dasharray="9 12"/>
+              <circle cx="352" cy="262" r="86" stroke-dasharray="8 14" opacity=".5"/>
+            </g>
+            <text x="300" y="390" fill="#d1e8f7" font-size="15" text-anchor="middle" letter-spacing="1.5">PLATFORM CONCEPTUALIZATION · MOLECULAR INTERFACE ENGINEERING</text>
+          </svg>
         </div>
-        <div class="grid">
-            <div class="card">
-                <span class="tag">Mechanism</span>
-                <h3>Broad-Spectrum Binding</h3>
-                <p>Utilizes recombinant soluble receptor domain constructs engineered for optimized affinity and structural stability against target viral entry proteins.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Diagnostics</span>
-                <h3>Equipment-Free POC</h3>
-                <p>Integrated into lateral flow assay (LFA) formats with self-activating sample preparation for decentralized, rapid point-of-care deployment in resource-limited settings.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Therapeutics</span>
-                <h3>Decoy Fusion Modules</h3>
-                <p>Exploring dual-action biotherapeutic concepts combining receptor decoy domains with targeted delivery and enzymatic cleavers to address complex infectious and systemic challenges.</p>
-            </div>
+        <div class="platform-copy">
+          <div class="section-head" style="margin-bottom:14px">
+            <div class="kicker">02 / Technology platform</div>
+            <h2>Designed around advanced molecular interaction concepts.</h2>
+            <p>Our platform narrative highlights a modern biotech identity: precision-guided molecular engineering, broad pathogen relevance, and translational readiness for future partnerships.</p>
+          </div>
+          <div class="feature">
+            <strong>Receptor-inspired platform concepts</strong>
+            <p>Engineering research concepts informed by functional host receptors and biologically relevant binding interfaces.</p>
+          </div>
+          <div class="feature">
+            <strong>Point-of-care diagnostic potential</strong>
+            <p>Exploration of decentralized rapid assay formats suitable for global health and biodefense applications.</p>
+          </div>
+          <div class="feature">
+            <strong>Therapeutic expansion opportunities</strong>
+            <p>Research-stage strategies that may extend into antiviral neutralization or entry-interference modalities.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Pipeline Overview -->
-    <section id="pipeline">
-        <div class="section-title">
-            <h2>Development Pipeline</h2>
-            <p>Targeting critical public health priorities</p>
+    <section class="section" id="pipeline">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">03 / Development pipeline</div>
+          <h2>Focused programs with platform leverage.</h2>
+          <p>The current pipeline highlights early-stage initiatives that reflect EnABle AB’s broader scientific direction and platform potential.</p>
         </div>
-        <div class="grid">
-            <div class="card">
-                <span class="tag">AVR-301 • Diagnostics</span>
-                <h3>Pan-Orthoebolavirus Rapid Assay</h3>
-                <p>A broad-spectrum, host-receptor decoy LFA designed for pan-species detection across major Orthoebolaviruses without relying on strain-specific monoclonal antibodies.</p>
+        <div class="pipeline-grid">
+          <article class="pipeline-card">
+            <div class="pipeline-top">
+              <span class="tag">Diagnostics</span>
+              <h3>Pan-Orthoebolavirus rapid assay</h3>
+              <p>A decentralized detection concept designed for broad orthoebolavirus coverage, simplified workflows, and future deployment in resource-limited or outbreak-response settings.</p>
             </div>
-            <div class="card">
-                <span class="tag">AVR-Therapeutics • Concept</span>
-                <h3>Universal Viral Neutralization</h3>
-                <p>Pre-clinical decoy modules engineered to block viral cell entry mechanisms, offering a mutation-proof intervention strategy for emerging threats.</p>
+            <div class="pipeline-bottom">
+              <span>Rapid diagnostic platform</span>
+              <span class="stage">Early R&amp;D / PoC</span>
             </div>
+          </article>
+
+          <article class="pipeline-card">
+            <div class="pipeline-top">
+              <span class="tag">Therapeutics</span>
+              <h3>Host-interface antiviral concepts</h3>
+              <p>Research-stage exploration of entry-focused antiviral strategies inspired by conserved biological interactions that may support broader activity across variants.</p>
+            </div>
+            <div class="pipeline-bottom">
+              <span>Biotherapeutic research</span>
+              <span class="stage">Research / Concept</span>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Contact / Partnership -->
-    <section id="contact" class="contact">
-        <h2>Global R&D Collaboration</h2>
-        <p>We actively collaborate with international biodefense agencies, research institutes, and industry partners to accelerate technology deployment.</p>
-        <div class="contact-info">
-            <p style="color: var(--white);">EnABle AB | Republic of Korea</p>
-            <p style="color: #60a5fa; margin-top: 0.5rem;">Contact: contact@enable-ab.com</p>
+    <section class="section" id="partnerships" style="padding-top:0">
+      <div class="wrap">
+        <div class="partner-band">
+          <div>
+            <div class="kicker">04 / Partnerships</div>
+            <h2>Open to strategic R&amp;D collaboration.</h2>
+            <p>We welcome collaboration opportunities with academic investigators, global health organizations, diagnostic developers, and industry partners seeking differentiated platform science and translational research potential.</p>
+          </div>
+          <a class="btn btn-primary" href="#contact">Discuss collaboration →</a>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 EnABle AB. All rights reserved. Non-confidential corporate overview.</p>
-    </footer>
+    <section class="section" id="contact">
+      <div class="wrap contact-wrap">
+        <div>
+          <div class="section-head" style="margin-bottom:0">
+            <div class="kicker">05 / Contact</div>
+            <h2>Let’s build the next chapter of biotech innovation.</h2>
+            <p>For non-confidential partnership inquiries, company introductions, and scientific collaboration discussions, please contact EnABle AB.</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <small>Business &amp; research inquiries</small>
+          <a href="mailto:contact@enable-ab.com">contact@enable-ab.com ↗</a>
+          <div class="loc">EnABle AB</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="wrap footer-inner">
+      <div><strong>EnABle AB</strong> · © 2026 All rights reserved.</div>
+      <div>Non-confidential corporate overview · <a href="#home">Back to top ↑</a></div>
+    </div>
+  </footer>
 </body>
 </html>
