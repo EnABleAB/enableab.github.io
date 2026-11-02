@@ -1,199 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EnABle AB — Universal Antiviral Theranostics Platform</title>
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<style>
-:root {
-  --bg-color: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --accent-color: #2563eb;
-  --border-color: #e2e8f0;
-  --max-width: 900px;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-header {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-main);
-  text-decoration: none;
-}
-.btn-contact {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: var(--text-main);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-.btn-contact:hover {
-  background-color: var(--accent-color);
-}
-main {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 3rem 1.5rem 6rem;
-}
-.hero {
-  margin-bottom: 4rem;
-}
-.badge {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  background-color: #eff6ff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-}
-.hero h1 {
-  font-size: 2.75rem;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
-  word-break: keep-all;
-}
-.hero p {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  max-width: 720px;
-  line-height: 1.7;
-  word-break: keep-all;
-}
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  padding: 3rem 0;
-  border-top: 1px solid var(--border-color);
-}
-.feature-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
-}
-.feature-card p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-.ask-box {
-  background-color: #f8fafc;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2.5rem;
-  margin: 3rem 0;
-}
-.ask-box h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.ask-box ul {
-  list-style: none;
-  color: var(--text-muted);
-}
-.ask-box li {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-footer {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-  .hero p {
-    font-size: 1.05rem;
-  }
-}
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnABle AB | Universal Antiviral Theranostics Platform</title>
+    <meta
+      name="description"
+      content="EnABle AB is a universal antiviral theranostics platform that neutralizes viral mutations using host-receptor decoy mechanisms."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8fbff;
+        --panel: #ffffff;
+        --panel-alt: #eef5ff;
+        --ink: #0f172a;
+        --muted: #52627a;
+        --line: #dfeaf7;
+        --primary: #1d4ed8;
+        --primary-dark: #1236a7;
+        --accent: #0ea5e9;
+        --success: #0f766e;
+        --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        --radius: 20px;
+        --max: 1180px;
+      }
 
-<header>
-  <a href="#" class="logo">EnABle AB</a>
-  <a href="https://calendly.com/YOUR-CALENDLY-LINK" class="btn-contact" target="_blank">Book a Meeting</a>
-</header>
+      * {
+        box-sizing: border-box;
+      }
 
-<main>
-  <section class="hero">
-    <span class="badge">UNIVERSAL ANTIVIRAL THERANOSTICS</span>
-    <h1>A Host-Receptor Decoy Platform Against Viral Mutations & Pandemics.</h1>
-    <p>
-      EnABle AB pioneers high-affinity dual-targeting and multimeric neutralizing protein platforms 
-      utilizing viral host-entry mechanisms. Overcoming mutant escape and bridging diagnostics with therapeutics (Theranostics).
-    </p>
-  </section>
+      html {
+        scroll-behavior: smooth;
+      }
 
-  <section class="features">
-    <div class="feature-card">
-      <h3>Mutation-Proof Decoys</h3>
-      <p>Targets invariant host-entry receptors rather than mutating viral epitopes, ensuring pan-variant efficacy against SARS-CoV-2 and emerging threats.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Dual Utility (Theranostics)</h3>
-      <p>The exact same high-affinity Receptor-Fc protein functions simultaneously as a Therapeutic Neutralizer and a Diagnostic Capture Molecule (1x).</p>
-    </div>
-    <div class="feature-card">
-      <h3>Validated Pipelines</h3>
-      <p>COVID-19 PoC completed with US/KR patents granted. Expanding rapidly into Pan-orthoebolavirus diagnostics & therapeutics, and Hepatitis B (HBV).</p>
-    </div>
-  </section>
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+        color: var(--ink);
+        line-height: 1.6;
+      }
 
-  <section class="ask-box">
-    <h3>Seed Investment & Milestones</h3>
-    <ul>
-      <li><strong>Raising:</strong> USD 500K (12-18 Months Runway)</li>
-      <li><strong>Core Goal:</strong> Complete In vitro PoC for Ebola antivirals & diagnostics</li>
-      <li><strong>Leadership:</strong> Dr. Mi-Young Seo (Founder & CEO) & Dr. Jang Han (Co-founder & CSO)</li>
-    </ul>
-  </section>
-</main>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-<footer>
-  <div><strong>EnABle AB Co.</strong></div>
-  <div>Address: 117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div>
-  <div>Contact: EnABleAB711@gmail.com</div>
-  <div style="margin-top: 1rem; color: #94a3b8;">© EnABle AB. All rights reserved.</div>
-</footer>
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-</body>
+      .container {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        background: rgba(248, 251, 255, 0.88);
+        border-bottom: 1px solid rgba(223, 234, 247, 0.8);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 80px;
+      }
+
+      .brand {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+
+      .brand span {
+        color: var(--primary);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .nav-link {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.9rem 1.4rem;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .button-primary {
+        background: var(--ink);
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .button-primary:hover {
+        background: var(--primary);
+      }
+
+      .hero {
+        padding: 72px 0 48px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(29, 78, 216, 0.08);
+        color: var(--primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 22px 0 18px;
+        font-size: clamp(2.7rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .lead {
+        max-width: 690px;
+        font-size: 1.1rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .button-secondary {
+        background: var(--panel);
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      .meta-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 28px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .meta-list strong {
+        color: var(--ink);
+      }
+
+      .hero-card {
+        background: linear-gradient(135deg, #0f172a 0%, #1b2d59 100%);
+        border-radius: 28px;
+        padding: 28px;
+        color: #fff;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -50% -20% auto auto;
+        width: 220px;
+        height: 220px;
+        background: rgba(14, 165, 233, 0.28);
+        border-radius: 50%;
+        filter: blur(14px);
+      }
+
+      .mini-label {
+        display: inline-block;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stat-stack {
+        margin-top: 22px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 18px 18px 16px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.7rem;
+        letter-spacing: -0.05em;
+        margin-bottom: 4px;
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .section-header {
+        max-width: 700px;
+        margin-bottom: 34px;
+      }
+
+      .section-header h2 {
+        margin: 12px 0 10px;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.06em;
+      }
+
+      .section-header p {
+        margin: 0;
+        font-size: 1.05rem;
+        color: var(--muted);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+      }
+
+      .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 18px;
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.12), rgba(14, 165, 233, 0.12));
+        color: var(--primary);
+        font-weight: 800;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+        letter-spacing: -0.04em;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .highlight {
+        background: var(--panel-alt);
+      }
+
+      .agenda {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .agenda-item {
+        padding: 28px 24px;
+        background: var(--panel);
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+      }
+
+      .agenda-item strong {
+        display: inline-block;
+        margin-bottom: 12px;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+
+      .agenda-item h3 {
+        margin: 0 0 8px;
+        font-size: 1.4rem;
+        letter-spacing: -0.04em;
+      }
+
+      .agenda-item p,
+      .agenda-item ul {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .agenda-item ul {
+        padding-left: 1.2rem;
+        margin-top: 12px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 0 48px;
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .feature-grid,
+        .agenda {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          padding: 14px 0;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .nav-actions {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .hero {
+          padding-top: 40px;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .cta-row {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#" class="brand">EnABle <span>AB</span></a>
+        <div class="nav-actions">
+          <a href="#platform" class="nav-link">Platform</a>
+          <a href="#mission" class="nav-link">Mission</a>
+          <a href="#milestones" class="nav-link">Milestones</a>
+          <a href="https://calendly.com/YOUR-CALENDLY-LINK" target="_blank" rel="noreferrer" class="button button-primary">Book a Meeting</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Universal Antiviral Theranostics</span>
+            <h1>Host-receptor decoy science for resilient antiviral protection.</h1>
+            <p class="lead">
+              EnABle AB develops high-affinity dual-targeting, multimeric neutralizing protein platforms
+              that exploit host-entry mechanisms to address viral mutation, rapid escape, and pandemic risk.
+            </p>
+            <div class="cta-row">
+              <a href="#milestones" class="button button-primary">View Milestones</a>
+              <a href="#platform" class="button button-secondary">Learn More</a>
+            </div>
+            <div class="meta-list">
+              <div><strong>Raising</strong> USD 500K</div>
+              <div><strong>Timeline</strong> 12–18 months</div>
+              <div><strong>Focus</strong> SARS-CoV-2, Ebola, HBV</div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <span class="mini-label">Platform Overview</span>
+            <div class="stat-stack">
+              <div class="stat">
+                <strong>1x</strong>
+                <span>Therapeutic and diagnostic function from the same high-affinity receptor-Fc protein.</span>
+              </div>
+              <div class="stat">
+                <strong>Pan-variant</strong>
+                <span>Neutralization built around invariant host-entry receptors rather than rapidly mutating viral epitopes.</span>
+              </div>
+              <div class="stat">
+                <strong>Validated</strong>
+                <span>COVID-19 proof of concept completed with granted US/KR patents.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="platform" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">The Platform</span>
+            <h2>Built to outpace escape and enable rapid response.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="card">
+              <div class="icon">01</div>
+              <h3>Mutation-Proof Decoys</h3>
+              <p>
+                Our approach targets conserved host-entry receptors instead of mutable viral epitopes,
+                helping reduce the risk of antigenic escape across variants and future threats.
+              </p>
+            </article>
+
+            <article class="card highlight">
+              <div class="icon">02</div>
+              <h3>Dual Utility Theranostics</h3>
+              <p>
+                The same engineered molecular scaffold can function as both a therapeutic neutralizer and
+                a diagnostic capture molecule, supporting streamlined translational workflows.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="icon">03</div>
+              <h3>Validated Pipelines</h3>
+              <p>
+                We are advancing evidence-driven pipelines spanning COVID-19, Pan-orthoebolavirus,
+                and Hepatitis B, with a clear translational roadmap toward the next generation of antiviral strategy.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="section" style="background: #f8fbff;">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Mission</span>
+            <h2>Turning host-entry biology into a response platform.</h2>
+          </div>
+
+          <div class="agenda">
+            <div class="agenda-item">
+              <strong>Approach</strong>
+              <h3>Host-receptor decoy design</h3>
+              <p>
+                We engineer high-affinity multimeric proteins designed to exploit viral host-entry mechanisms,
+                creating a strategic layer of protection against mutating pathogens.
+              </p>
+            </div>
+
+            <div class="agenda-item">
+              <strong>Outcome</strong>
+              <h3>Diagnostics + therapeutics</h3>
+              <p>
+                By integrating neutralization and detection functions, we seek to bridge laboratory validation
+                with clinical utility in a single platform architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="milestones" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Funding & Milestones</span>
+            <h2>Seed investment to accelerate translational milestones.</h2>
+          </div>
+
+          <div class="agenda">
+            <div class="agenda-item">
+              <strong>Capital</strong>
+              <h3>USD 500K</h3>
+              <p>Targeting a 12–18 month runway to advance product validation and preclinical expansion.</p>
+            </div>
+
+            <div class="agenda-item">
+              <strong>Core Goal</strong>
+              <h3>In vitro PoC for Ebola antiviral & diagnostics</h3>
+              <p>Focused on de-risking the next platform milestone with meaningful translational outputs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>EnABle AB Co.</strong>
+          <div>117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div>
+        </div>
+        <div>
+          <div>Contact: EnABleAB711@gmail.com</div>
+          <div>© EnABle AB. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
