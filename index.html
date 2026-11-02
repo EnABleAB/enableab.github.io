@@ -1,220 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EnABle AB — Universal Antiviral Theranostics Platform</title>
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --accent-color: #2563eb;
-      --border-color: #e2e8f0;
-      --max-width: 900px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    header {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .btn-contact {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #ffffff;
-      background-color: var(--text-main);
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-contact:hover {
-      background-color: var(--accent-color);
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 3rem 1.5rem 6rem;
-    }
-
-    .hero {
-      margin-bottom: 4rem;
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent-color);
-      background-color: #eff6ff;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.75rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      word-break: keep-all;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 720px;
-      line-height: 1.7;
-      word-break: keep-all;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      padding: 3rem 0;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .feature-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text-main);
-    }
-
-    .feature-card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .ask-box {
-      background-color: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-    }
-
-    .ask-box h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .ask-box ul {
-      list-style: none;
-      color: var(--text-muted);
-    }
-
-    .ask-box li {
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-
-    footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.1rem;
-      }
-      .hero p {
-        font-size: 1.05rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnABle AB — Universal Antiviral Theranostics Platform</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root {
+  --bg-color: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-color: #2563eb;
+  --border-color: #e2e8f0;
+  --max-width: 900px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  text-decoration: none;
+}
+.btn-contact {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--text-main);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.btn-contact:hover {
+  background-color: var(--accent-color);
+}
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+.hero {
+  margin-bottom: 4rem;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  background-color: #eff6ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  word-break: keep-all;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-color);
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.ask-box {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+}
+.ask-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.ask-box ul {
+  list-style: none;
+  color: var(--text-muted);
+}
+.ask-box li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+  .hero p {
+    font-size: 1.05rem;
+  }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <a href="#" class="logo">EnABle AB</a>
-    <!-- 복사하신 Calendly 예약 링크를 아래 href에 넣으세요 -->
-    <a href="https://calendly.com/YOUR-CALENDLY-LINK" class="btn-contact" target="_blank">Book a Meeting</a>
-  </header>
+<header>
+  <a href="#" class="logo">EnABle AB</a>
+  <a href="https://calendly.com/YOUR-CALENDLY-LINK" class="btn-contact" target="_blank">Book a Meeting</a>
+</header>
 
-  <main>
-    <section class="hero">
-      <span class="badge">UNIVERSAL ANTIVIRAL THERANOSTICS</span>
-      <h1>A Host-Receptor Decoy Platform Against Viral Mutations & Pandemics.</h1>
-      <p>
-        EnABle AB pioneers high-affinity dual-targeting and multimeric neutralizing protein platforms 
-        utilizing viral host-entry mechanisms. Overcoming mutant escape and bridging diagnostics with therapeutics (Theranostics).
-      </p>
-    </section>
+<main>
+  <section class="hero">
+    <span class="badge">UNIVERSAL ANTIVIRAL THERANOSTICS</span>
+    <h1>A Host-Receptor Decoy Platform Against Viral Mutations & Pandemics.</h1>
+    <p>
+      EnABle AB pioneers high-affinity dual-targeting and multimeric neutralizing protein platforms 
+      utilizing viral host-entry mechanisms. Overcoming mutant escape and bridging diagnostics with therapeutics (Theranostics).
+    </p>
+  </section>
 
-    <section class="features">
-      <div class="feature-card">
-        <h3>Mutation-Proof Decoys</h3>
-        <p>Targets invariant host-entry receptors rather than mutating viral epitopes, ensuring pan-variant efficacy against SARS-CoV-2 and emerging threats.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Dual Utility (Theranostics)</h3>
-        <p>The exact same high-affinity Receptor-Fc protein functions simultaneously as a Therapeutic Neutralizer and a Diagnostic Capture Molecule (1x).</p>
-      </div>
-      <div class="feature-card">
-        <h3>Validated Pipelines</h3>
-        <p>COVID-19 PoC completed with US/KR patents granted. Expanding rapidly into Pan-orthoebolavirus diagnostics & therapeutics, and Hepatitis B (HBV).</p>
-      </div>
-    </section>
+  <section class="features">
+    <div class="feature-card">
+      <h3>Mutation-Proof Decoys</h3>
+      <p>Targets invariant host-entry receptors rather than mutating viral epitopes, ensuring pan-variant efficacy against SARS-CoV-2 and emerging threats.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Dual Utility (Theranostics)</h3>
+      <p>The exact same high-affinity Receptor-Fc protein functions simultaneously as a Therapeutic Neutralizer and a Diagnostic Capture Molecule (1x).</p>
+    </div>
+    <div class="feature-card">
+      <h3>Validated Pipelines</h3>
+      <p>COVID-19 PoC completed with US/KR patents granted. Expanding rapidly into Pan-orthoebolavirus diagnostics & therapeutics, and Hepatitis B (HBV).</p>
+    </div>
+  </section>
 
-    <section class="ask-box">
-      <h3>Seed Investment & Milestones</h3>
-      <ul>
-        <li><strong>Raising:</strong> USD 500K (12-18 Months Runway)</li>
-        <li><strong>Core Goal:</strong> Complete In vitro PoC for Ebola antivirals & diagnostics</li>
-        <li><strong>Leadership:</strong> Dr. Mi-Young Seo (Founder & CEO) & Dr. Jang Han (Co-founder & CSO)</li>
-      </ul>
-    </section>
-  </main>
+  <section class="ask-box">
+    <h3>Seed Investment & Milestones</h3>
+    <ul>
+      <li><strong>Raising:</strong> USD 500K (12-18 Months Runway)</li>
+      <li><strong>Core Goal:</strong> Complete In vitro PoC for Ebola antivirals & diagnostics</li>
+      <li><strong>Leadership:</strong> Dr. Mi-Young Seo (Founder & CEO) & Dr. Jang Han (Co-founder & CSO)</li>
+    </ul>
+  </section>
+</main>
 
-  <footer>
-    <div><strong>EnABle AB Co.</strong></div>
-    <div>Address: 117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div>
-    <div>Contact: EnABleAB711@gmail.com</div>
-    <div style="margin-top: 1rem; color: #94a3b8;">© EnABle AB. All rights reserved.</div>
-  </footer>
+<footer>
+  <div><strong>EnABle AB Co.</strong></div>
+  <div>Address: 117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div>
+  <div>Contact: EnABleAB711@gmail.com</div>
+  <div style="margin-top: 1rem; color: #94a3b8;">© EnABle AB. All rights reserved.</div>
+</footer>
 
 </body>
 </html>
