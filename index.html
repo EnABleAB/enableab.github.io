@@ -3,48 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EnABle AB | Universal Antiviral Theranostics Platform</title>
     <meta
       name="description"
-      content="EnABle AB is a universal antiviral theranostics platform that neutralizes viral mutations using host-receptor decoy mechanisms."
+      content="EnABle AB develops host-receptor decoy protein platforms for antiviral therapeutics and diagnostics."
     />
+    <meta name="theme-color" content="#ffffff" />
+    <title>EnABle AB — Antiviral Theranostics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #f8fbff;
-        --panel: #ffffff;
-        --panel-alt: #eef5ff;
-        --ink: #0f172a;
-        --muted: #52627a;
-        --line: #dfeaf7;
-        --primary: #1d4ed8;
-        --primary-dark: #1236a7;
-        --accent: #0ea5e9;
-        --success: #0f766e;
-        --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-        --radius: 20px;
-        --max: 1180px;
+        color-scheme: light;
+        --ink: #172b3a;
+        --muted: #647583;
+        --blue: #176b87;
+        --blue-dark: #10536c;
+        --mint: #e9f4f2;
+        --line: #e5ebee;
+        --canvas: #ffffff;
+        --soft: #f7faf9;
+        --max-width: 1160px;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 92px;
       }
 
       body {
         margin: 0;
-        font-family: "Inter", sans-serif;
-        background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+        background: var(--canvas);
         color: var(--ink);
-        line-height: 1.6;
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
       }
 
       a {
@@ -52,452 +55,612 @@
         text-decoration: none;
       }
 
-      img {
-        max-width: 100%;
-        display: block;
+      a:focus-visible {
+        outline: 3px solid #65b5c5;
+        outline-offset: 4px;
+        border-radius: 4px;
       }
 
       .container {
-        width: min(var(--max), calc(100% - 32px));
-        margin: 0 auto;
+        width: min(var(--max-width), calc(100% - 48px));
+        margin-inline: auto;
       }
 
-      .topbar {
+      .site-header {
         position: sticky;
         top: 0;
-        z-index: 10;
-        backdrop-filter: blur(10px);
-        background: rgba(248, 251, 255, 0.88);
-        border-bottom: 1px solid rgba(223, 234, 247, 0.8);
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid var(--line);
       }
 
-      .nav {
+      .navigation {
+        min-height: 76px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: center;
-        min-height: 80px;
+        gap: 28px;
       }
 
-      .brand {
-        font-size: 1.25rem;
+      .wordmark {
+        font-family: "Manrope", sans-serif;
+        font-size: 1.22rem;
         font-weight: 800;
-        letter-spacing: -0.05em;
+        letter-spacing: -0.07em;
+        white-space: nowrap;
       }
 
-      .brand span {
-        color: var(--primary);
+      .wordmark span {
+        color: var(--blue);
       }
 
-      .nav-actions {
+      .nav-links {
         display: flex;
         align-items: center;
-        gap: 14px;
-      }
-
-      .nav-link {
+        gap: 32px;
         color: var(--muted);
+        font-size: 0.9rem;
         font-weight: 600;
       }
 
+      .nav-links a:not(.button):hover {
+        color: var(--blue);
+      }
+
       .button {
+        min-height: 46px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border-radius: 999px;
-        padding: 0.9rem 1.4rem;
+        padding: 0.72rem 1.15rem;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        font-size: 0.9rem;
         font-weight: 700;
-        transition: 0.2s ease;
+        transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
       }
 
       .button-primary {
-        background: var(--ink);
+        background: var(--blue);
         color: #fff;
-        box-shadow: var(--shadow);
       }
 
       .button-primary:hover {
-        background: var(--primary);
+        background: var(--blue-dark);
+      }
+
+      .button-outline {
+        border-color: #cbd9dc;
+        color: var(--ink);
+        background: transparent;
+      }
+
+      .button-outline:hover {
+        border-color: var(--blue);
+        color: var(--blue);
       }
 
       .hero {
-        padding: 72px 0 48px;
+        padding: 98px 0 90px;
+        border-bottom: 1px solid var(--line);
       }
 
-      .hero-grid {
+      .hero-layout {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 42px;
+        grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
         align-items: center;
+        gap: 88px;
       }
 
       .eyebrow {
         display: inline-flex;
-        padding: 0.45rem 0.9rem;
-        border-radius: 999px;
-        background: rgba(29, 78, 216, 0.08);
-        color: var(--primary);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.12em;
+        align-items: center;
+        gap: 10px;
+        color: var(--blue);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 22px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
       }
 
       h1 {
-        margin: 22px 0 18px;
-        font-size: clamp(2.7rem, 5vw, 5rem);
-        line-height: 0.96;
-        letter-spacing: -0.06em;
-      }
-
-      .lead {
-        max-width: 690px;
-        font-size: 1.1rem;
-        color: var(--muted);
-        margin-bottom: 28px;
-      }
-
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-bottom: 28px;
-      }
-
-      .button-secondary {
-        background: var(--panel);
-        color: var(--ink);
-        border: 1px solid var(--line);
-      }
-
-      .meta-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px 28px;
-        color: var(--muted);
+        max-width: 760px;
+        margin: 23px 0 20px;
+        font-size: clamp(2.7rem, 5.2vw, 4.65rem);
         font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.065em;
       }
 
-      .meta-list strong {
-        color: var(--ink);
+      .hero-copy {
+        max-width: 660px;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: 1.08rem;
       }
 
-      .hero-card {
-        background: linear-gradient(135deg, #0f172a 0%, #1b2d59 100%);
-        border-radius: 28px;
-        padding: 28px;
-        color: #fff;
-        box-shadow: var(--shadow);
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .science-visual {
+        min-height: 330px;
+        display: grid;
+        place-items: center;
         position: relative;
         overflow: hidden;
-      }
-
-      .hero-card::before {
-        content: "";
-        position: absolute;
-        inset: -50% -20% auto auto;
-        width: 220px;
-        height: 220px;
-        background: rgba(14, 165, 233, 0.28);
+        border: 1px solid #e4efed;
         border-radius: 50%;
-        filter: blur(14px);
+        background: radial-gradient(circle, #f8fcfb 0%, #f1f8f6 54%, #e9f4f2 100%);
       }
 
-      .mini-label {
-        display: inline-block;
-        padding: 0.35rem 0.7rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.07);
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      .science-visual::before,
+      .science-visual::after {
+        position: absolute;
+        width: 76%;
+        height: 36%;
+        border: 1px solid rgba(23, 107, 135, 0.2);
+        border-radius: 50%;
+        content: "";
       }
 
-      .stat-stack {
-        margin-top: 22px;
+      .science-visual::before {
+        transform: rotate(38deg);
+      }
+
+      .science-visual::after {
+        transform: rotate(-38deg);
+      }
+
+      .visual-core {
+        width: 118px;
+        height: 118px;
         display: grid;
-        gap: 16px;
+        place-items: center;
+        position: relative;
+        z-index: 1;
+        border: 1px solid rgba(23, 107, 135, 0.18);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--blue);
+        font-family: "Manrope", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        box-shadow: 0 12px 40px rgba(23, 65, 77, 0.08);
       }
 
-      .stat {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 18px 18px 16px;
+      .visual-dot {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        z-index: 2;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        background: #4a9b9b;
+        box-shadow: 0 0 0 1px rgba(23, 107, 135, 0.16);
       }
 
-      .stat strong {
-        display: block;
-        font-size: 1.7rem;
-        letter-spacing: -0.05em;
-        margin-bottom: 4px;
+      .dot-one {
+        top: 20%;
+        left: 31%;
+      }
+
+      .dot-two {
+        right: 19%;
+        bottom: 34%;
+      }
+
+      .dot-three {
+        bottom: 18%;
+        left: 39%;
       }
 
       .section {
-        padding: 86px 0;
+        padding: 94px 0;
       }
 
-      .section-header {
-        max-width: 700px;
-        margin-bottom: 34px;
+      .section-soft {
+        background: var(--soft);
+        border-block: 1px solid var(--line);
       }
 
-      .section-header h2 {
-        margin: 12px 0 10px;
-        font-size: clamp(2rem, 3vw, 3rem);
+      .section-heading {
+        max-width: 690px;
+        margin-bottom: 40px;
+      }
+
+      .section-heading h2 {
+        margin: 14px 0 12px;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 600;
+        line-height: 1.15;
         letter-spacing: -0.06em;
       }
 
-      .section-header p {
-        margin: 0;
-        font-size: 1.05rem;
+      .section-heading p {
+        margin-bottom: 0;
         color: var(--muted);
+        font-size: 1.02rem;
       }
 
       .feature-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
-      }
-
-      .card {
-        background: var(--panel);
         border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 28px 24px;
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+        border-radius: 8px;
+        background: #fff;
       }
 
-      .icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        margin-bottom: 18px;
-        background: linear-gradient(135deg, rgba(29, 78, 216, 0.12), rgba(14, 165, 233, 0.12));
-        color: var(--primary);
-        font-weight: 800;
+      .feature {
+        padding: 30px 28px 32px;
       }
 
-      .card h3 {
-        margin: 0 0 10px;
-        font-size: 1.25rem;
+      .feature + .feature {
+        border-left: 1px solid var(--line);
+      }
+
+      .feature-number {
+        display: block;
+        margin-bottom: 30px;
+        color: #7aa4a6;
+        font-family: "Manrope", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .feature h3 {
+        margin-bottom: 10px;
+        font-size: 1.22rem;
+        font-weight: 700;
         letter-spacing: -0.04em;
       }
 
-      .card p {
-        margin: 0;
+      .feature p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .mission-layout {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .mission-layout .section-heading {
+        margin-bottom: 0;
+      }
+
+      .mission-points {
+        border-top: 1px solid var(--line);
+      }
+
+      .mission-point {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 24px;
+        padding: 23px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .mission-point strong {
+        color: var(--blue);
+        font-size: 0.85rem;
+      }
+
+      .mission-point p {
+        margin-bottom: 0;
         color: var(--muted);
       }
 
-      .highlight {
-        background: var(--panel-alt);
-      }
-
-      .agenda {
+      .milestones {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 22px;
+        gap: 18px;
       }
 
-      .agenda-item {
-        padding: 28px 24px;
-        background: var(--panel);
-        border-radius: var(--radius);
+      .milestone {
+        min-height: 190px;
+        padding: 28px;
         border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #fff;
       }
 
-      .agenda-item strong {
-        display: inline-block;
-        margin-bottom: 12px;
-        font-size: 0.78rem;
-        letter-spacing: 0.1em;
+      .milestone-label {
+        display: block;
+        margin-bottom: 19px;
+        color: var(--blue);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--primary);
       }
 
-      .agenda-item h3 {
-        margin: 0 0 8px;
-        font-size: 1.4rem;
-        letter-spacing: -0.04em;
+      .milestone h3 {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.05em;
       }
 
-      .agenda-item p,
-      .agenda-item ul {
-        margin: 0;
+      .milestone p {
+        margin-bottom: 0;
         color: var(--muted);
       }
 
-      .agenda-item ul {
-        padding-left: 1.2rem;
-        margin-top: 12px;
-      }
-
-      footer {
+      .team-line {
+        margin: 28px 0 0;
+        padding-top: 22px;
         border-top: 1px solid var(--line);
-        padding: 28px 0 48px;
+        color: var(--muted);
+        font-size: 0.94rem;
       }
 
-      .footer-grid {
+      .team-line strong {
+        color: var(--ink);
+      }
+
+      .site-footer {
+        padding: 32px 0 38px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .footer-content {
         display: flex;
         justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap;
-        color: var(--muted);
+        gap: 24px;
       }
 
-      @media (max-width: 920px) {
-        .hero-grid,
-        .feature-grid,
-        .agenda {
+      .footer-company {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .footer-contact {
+        text-align: right;
+      }
+
+      @media (max-width: 850px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .science-visual {
+          width: min(390px, 100%);
+          min-height: 300px;
+          margin-inline: auto;
+        }
+
+        .feature-grid {
           grid-template-columns: 1fr;
         }
-      }
 
-      @media (max-width: 640px) {
-        .nav {
-          padding: 14px 0;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 10px;
+        .feature + .feature {
+          border-top: 1px solid var(--line);
+          border-left: 0;
         }
 
-        .nav-actions {
+        .feature-number {
+          margin-bottom: 16px;
+        }
+
+        .mission-layout {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .container {
+          width: min(var(--max-width), calc(100% - 36px));
+        }
+
+        .navigation {
+          min-height: 68px;
+          flex-wrap: wrap;
+          gap: 8px;
+          padding: 12px 0;
+        }
+
+        .nav-links {
           width: 100%;
-          justify-content: center;
+          justify-content: space-between;
+          gap: 12px;
+          font-size: 0.8rem;
+        }
+
+        .nav-links .button {
+          min-height: 38px;
+          padding: 0.45rem 0.7rem;
+          font-size: 0.78rem;
         }
 
         .hero {
-          padding-top: 40px;
+          padding: 66px 0 62px;
         }
 
-        .button {
+        h1 {
+          font-size: clamp(2.5rem, 11vw, 3.7rem);
+        }
+
+        .hero-copy {
+          font-size: 1rem;
+        }
+
+        .hero-actions .button {
           width: 100%;
         }
 
-        .cta-row {
-          display: grid;
+        .section {
+          padding: 68px 0;
+        }
+
+        .mission-point {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .milestones {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .footer-contact {
+          text-align: left;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
   <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a href="#" class="brand">EnABle <span>AB</span></a>
-        <div class="nav-actions">
-          <a href="#platform" class="nav-link">Platform</a>
-          <a href="#mission" class="nav-link">Mission</a>
-          <a href="#milestones" class="nav-link">Milestones</a>
-          <a href="https://calendly.com/YOUR-CALENDLY-LINK" target="_blank" rel="noreferrer" class="button button-primary">Book a Meeting</a>
+    <header class="site-header">
+      <nav class="container navigation" aria-label="Main navigation">
+        <a class="wordmark" href="#top" aria-label="EnABle AB home">EnABle <span>AB</span></a>
+        <div class="nav-links">
+          <a href="#platform">Platform</a>
+          <a href="#mission">Approach</a>
+          <a href="#milestones">Milestones</a>
+          <a
+            class="button button-primary"
+            href="https://calendly.com/YOUR-CALENDLY-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a meeting
+          </a>
         </div>
-      </div>
+      </nav>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
-        <div class="container hero-grid">
+        <div class="container hero-layout">
           <div>
-            <span class="eyebrow">Universal Antiviral Theranostics</span>
-            <h1>Host-receptor decoy science for resilient antiviral protection.</h1>
-            <p class="lead">
-              EnABle AB develops high-affinity dual-targeting, multimeric neutralizing protein platforms
-              that exploit host-entry mechanisms to address viral mutation, rapid escape, and pandemic risk.
+            <span class="eyebrow">Universal antiviral theranostics</span>
+            <h1>A new angle on antiviral protection.</h1>
+            <p class="hero-copy">
+              EnABle AB develops high-affinity, dual-targeting protein platforms that use viral host-entry
+              mechanisms to bring therapeutics and diagnostics together.
             </p>
-            <div class="cta-row">
-              <a href="#milestones" class="button button-primary">View Milestones</a>
-              <a href="#platform" class="button button-secondary">Learn More</a>
-            </div>
-            <div class="meta-list">
-              <div><strong>Raising</strong> USD 500K</div>
-              <div><strong>Timeline</strong> 12–18 months</div>
-              <div><strong>Focus</strong> SARS-CoV-2, Ebola, HBV</div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#platform">Explore our platform</a>
+              <a class="button button-outline" href="#milestones">Our milestones</a>
             </div>
           </div>
-
-          <div class="hero-card">
-            <span class="mini-label">Platform Overview</span>
-            <div class="stat-stack">
-              <div class="stat">
-                <strong>1x</strong>
-                <span>Therapeutic and diagnostic function from the same high-affinity receptor-Fc protein.</span>
-              </div>
-              <div class="stat">
-                <strong>Pan-variant</strong>
-                <span>Neutralization built around invariant host-entry receptors rather than rapidly mutating viral epitopes.</span>
-              </div>
-              <div class="stat">
-                <strong>Validated</strong>
-                <span>COVID-19 proof of concept completed with granted US/KR patents.</span>
-              </div>
-            </div>
+          <div class="science-visual" role="img" aria-label="Abstract illustration of a molecular receptor platform">
+            <span class="visual-dot dot-one" aria-hidden="true"></span>
+            <span class="visual-dot dot-two" aria-hidden="true"></span>
+            <span class="visual-dot dot-three" aria-hidden="true"></span>
+            <div class="visual-core" aria-hidden="true">EnABle AB</div>
           </div>
         </div>
       </section>
 
       <section id="platform" class="section">
         <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">The Platform</span>
-            <h2>Built to outpace escape and enable rapid response.</h2>
+          <div class="section-heading">
+            <span class="eyebrow">The platform</span>
+            <h2>Designed around the way viruses enter cells.</h2>
+            <p>
+              Our receptor-decoy approach focuses on host-entry mechanisms, with the goal of addressing
+              viral variation while supporting both detection and neutralization.
+            </p>
           </div>
 
           <div class="feature-grid">
-            <article class="card">
-              <div class="icon">01</div>
-              <h3>Mutation-Proof Decoys</h3>
+            <article class="feature">
+              <span class="feature-number">01 / TARGETING</span>
+              <h3>Host-receptor decoys</h3>
               <p>
-                Our approach targets conserved host-entry receptors instead of mutable viral epitopes,
-                helping reduce the risk of antigenic escape across variants and future threats.
+                Targeting host-entry receptors rather than viral epitopes that can change through mutation,
+                with a focus on broad antiviral potential.
               </p>
             </article>
-
-            <article class="card highlight">
-              <div class="icon">02</div>
-              <h3>Dual Utility Theranostics</h3>
+            <article class="feature">
+              <span class="feature-number">02 / THERANOSTICS</span>
+              <h3>One platform, dual utility</h3>
               <p>
-                The same engineered molecular scaffold can function as both a therapeutic neutralizer and
-                a diagnostic capture molecule, supporting streamlined translational workflows.
+                The same high-affinity Receptor-Fc protein is designed to serve as a therapeutic neutralizer
+                and a diagnostic capture molecule.
               </p>
             </article>
-
-            <article class="card">
-              <div class="icon">03</div>
-              <h3>Validated Pipelines</h3>
+            <article class="feature">
+              <span class="feature-number">03 / PIPELINE</span>
+              <h3>Validated foundations</h3>
               <p>
-                We are advancing evidence-driven pipelines spanning COVID-19, Pan-orthoebolavirus,
-                and Hepatitis B, with a clear translational roadmap toward the next generation of antiviral strategy.
+                COVID-19 proof of concept completed, with US and Korean patents granted. Pipeline expansion
+                includes Pan-orthoebolavirus and Hepatitis B.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="mission" class="section" style="background: #f8fbff;">
-        <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">Mission</span>
-            <h2>Turning host-entry biology into a response platform.</h2>
+      <section id="mission" class="section section-soft">
+        <div class="container mission-layout">
+          <div class="section-heading">
+            <span class="eyebrow">Our approach</span>
+            <h2>Connecting molecular insight to practical tools.</h2>
+            <p>
+              We are building a platform that brings antiviral research, diagnostics, and therapeutic
+              development into closer alignment.
+            </p>
           </div>
-
-          <div class="agenda">
-            <div class="agenda-item">
-              <strong>Approach</strong>
-              <h3>Host-receptor decoy design</h3>
-              <p>
-                We engineer high-affinity multimeric proteins designed to exploit viral host-entry mechanisms,
-                creating a strategic layer of protection against mutating pathogens.
-              </p>
+          <div class="mission-points">
+            <div class="mission-point">
+              <strong>Therapeutics</strong>
+              <p>Develop neutralizing proteins that use host-entry biology to address viral threats.</p>
             </div>
-
-            <div class="agenda-item">
-              <strong>Outcome</strong>
-              <h3>Diagnostics + therapeutics</h3>
-              <p>
-                By integrating neutralization and detection functions, we seek to bridge laboratory validation
-                with clinical utility in a single platform architecture.
-              </p>
+            <div class="mission-point">
+              <strong>Diagnostics</strong>
+              <p>Apply the same high-affinity platform as a capture molecule for diagnostic use.</p>
+            </div>
+            <div class="mission-point">
+              <strong>Expansion</strong>
+              <p>Advance programs in Pan-orthoebolavirus and Hepatitis B alongside completed COVID-19 PoC.</p>
             </div>
           </div>
         </div>
@@ -505,36 +668,38 @@
 
       <section id="milestones" class="section">
         <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">Funding & Milestones</span>
-            <h2>Seed investment to accelerate translational milestones.</h2>
+          <div class="section-heading">
+            <span class="eyebrow">Funding & milestones</span>
+            <h2>Focused investment. Clear next steps.</h2>
           </div>
-
-          <div class="agenda">
-            <div class="agenda-item">
-              <strong>Capital</strong>
+          <div class="milestones">
+            <article class="milestone">
+              <span class="milestone-label">Seed investment</span>
               <h3>USD 500K</h3>
-              <p>Targeting a 12–18 month runway to advance product validation and preclinical expansion.</p>
-            </div>
-
-            <div class="agenda-item">
-              <strong>Core Goal</strong>
-              <h3>In vitro PoC for Ebola antiviral & diagnostics</h3>
-              <p>Focused on de-risking the next platform milestone with meaningful translational outputs.</p>
-            </div>
+              <p>Targeting a 12–18 month runway.</p>
+            </article>
+            <article class="milestone">
+              <span class="milestone-label">Core milestone</span>
+              <h3>Ebola in vitro proof of concept</h3>
+              <p>Complete in vitro PoC for Ebola antiviral and diagnostic applications.</p>
+            </article>
           </div>
+          <p class="team-line">
+            <strong>Leadership</strong> &nbsp; Dr. Mi-Young Seo, Founder & CEO &nbsp;·&nbsp;
+            Dr. Jang Han, Co-founder & CSO
+          </p>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="container footer-grid">
+    <footer class="site-footer">
+      <div class="container footer-content">
         <div>
-          <strong>EnABle AB Co.</strong>
+          <div class="footer-company">EnABle AB Co.</div>
           <div>117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div>
         </div>
-        <div>
-          <div>Contact: EnABleAB711@gmail.com</div>
+        <div class="footer-contact">
+          <div><a href="mailto:EnABleAB711@gmail.com">EnABleAB711@gmail.com</a></div>
           <div>© EnABle AB. All rights reserved.</div>
         </div>
       </div>
