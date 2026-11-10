@@ -8,7 +8,6 @@
     <meta property="og:description" content="EnABle AB develops host-receptor decoy protein platforms for antiviral therapeutics and diagnostics." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://enableab.github.io/" />
-    <!-- <meta property="og:image" content="https://enableab.github.io/og-image.png" /> -->
     <meta name="theme-color" content="#ffffff" />
     <title>EnABle AB — Antiviral Theranostics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +38,7 @@
       .brand-blue { color: var(--blue); }
       .nav-links { display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: .9rem; font-weight: 600; }
       .nav-links a:not(.button):hover { color: var(--blue); }
-      .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: .72rem 1.15rem; border: 1px solid transparent; border-radius: 5px; font-size: .9rem; font[...]
+      .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: .72rem 1.15rem; border: 1px solid transparent; border-radius: 5px; font-size: .9rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: background-color .18s ease, color .18s ease, border-color .18s ease; }
       .button-primary { background: var(--blue); color: #fff; }
       .button-primary:hover { background: var(--blue-dark); }
       .button-outline { border-color: #cbd5e1; color: var(--ink); background: transparent; }
@@ -53,7 +52,7 @@
       h1 { max-width: 760px; margin: 23px 0 20px; font-size: clamp(2.7rem, 5.2vw, 4.65rem); font-weight: 600; line-height: 1.08; letter-spacing: -.065em; }
       .hero-copy { max-width: 660px; margin-bottom: 28px; color: var(--muted); font-size: 1.08rem; }
       .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-      .threat-visual { position: relative; min-height: 380px; display: grid; place-items: center; overflow: hidden; border: 1px solid #dbeafe; border-radius: 18px; background: radial-gradient(ellipse [...]
+      .threat-visual { position: relative; min-height: 380px; display: grid; place-items: center; overflow: hidden; border: 1px solid #dbeafe; border-radius: 18px; background: radial-gradient(ellipse at center, #fff 0%, #f7faff 72%, #eff6ff 100%); }
       .threat-visual::before, .threat-visual::after { position: absolute; width: 275px; height: 275px; border: 1px solid rgba(37,99,235,.10); border-radius: 50%; content: ""; }
       .threat-visual::after { width: 215px; height: 215px; border-color: rgba(37,99,235,.13); }
       .threat-art { position: relative; z-index: 1; width: min(100%, 440px); height: auto; }
@@ -82,14 +81,14 @@
       .milestone p { margin-bottom: 0; color: var(--muted); }
       .team-line { margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .94rem; }
       .team-line strong { color: var(--ink); }
-      .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: start; }
+      .contact-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
       .contact-layout .section-heading { margin-bottom: 0; }
       .contact-note { margin-top: 20px; color: var(--muted); font-size: .92rem; }
       .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 16px; padding: 28px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
-      .form-field { display: flex; flex-direction: column; gap: 7px; }
+      .form-field { min-width: 0; display: flex; flex-direction: column; gap: 7px; }
       .form-field-full { grid-column: 1 / -1; }
       .form-field label { color: var(--ink); font-size: .86rem; font-weight: 700; }
-      .form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; color: var(--ink[...]
+      .form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; color: var(--ink); font: inherit; line-height: 1.4; }
       .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--blue); }
       .form-field textarea { min-height: 118px; resize: vertical; }
       .form-field input::placeholder, .form-field textarea::placeholder { color: #8997a8; }
@@ -140,7 +139,6 @@
         </div>
       </nav>
     </header>
-
     <main id="top">
       <section class="hero">
         <div class="container hero-layout">
@@ -173,7 +171,6 @@
           </div>
         </div>
       </section>
-
       <section id="platform" class="section">
         <div class="container">
           <div class="section-heading"><span class="eyebrow">The platform</span><h2>Designed around the way viruses enter cells.</h2><p>Our receptor-decoy approach focuses on host-entry mechanisms, which allows a broader and more stable antiviral strategy than targeting rapidly mutating viral epitopes.</p></div>
@@ -184,7 +181,6 @@
           </div>
         </div>
       </section>
-
       <section id="mission" class="section section-soft">
         <div class="container mission-layout">
           <div class="section-heading"><span class="eyebrow">Our approach</span><h2>Connecting molecular insight to practical tools.</h2><p>We are building a platform that brings antiviral research, diagnostics, and translational development into a single strategic framework.</p></div>
@@ -195,7 +191,6 @@
           </div>
         </div>
       </section>
-
       <section id="milestones" class="section">
         <div class="container">
           <div class="section-heading"><span class="eyebrow">Funding &amp; milestones</span><h2>Focused investment. Clear next steps.</h2></div>
@@ -206,7 +201,6 @@
           <p class="team-line"><strong>Leadership</strong> &nbsp; Dr. Mi-Young Seo, Founder &amp; CEO &nbsp;·&nbsp; Dr. Jang Han, Co-founder &amp; CSO</p>
         </div>
       </section>
-
       <section id="contact" class="section section-soft">
         <div class="container contact-layout">
           <div class="section-heading">
@@ -227,7 +221,6 @@
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="container footer-content">
         <div><div class="footer-company">EnABle AB Co.</div><div>117-3, Hoegi-ro, Dongdaemun-gu, Seoul, South Korea (02455)</div></div>
