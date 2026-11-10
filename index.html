@@ -14,118 +14,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      :root { color-scheme: light; --ink: #0f172a; --muted: #64748b; --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --line: #dbe4f0; --canvas: #fff; --soft: #f7faff; --max-width: 1160px; }
-      *, *::before, *::after { box-sizing: border-box; }
-      html { scroll-behavior: smooth; scroll-padding-top: 56px; }
-      body { margin: 0; background: var(--canvas); color: var(--ink); font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-      a { color: inherit; text-decoration: none; }
-      a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; border-radius: 4px; }
-      .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
-      .site-header { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); }
-      .navigation { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-      .wordmark { font-family: "Manrope", sans-serif; font-size: 1.22rem; font-weight: 800; letter-spacing: -.07em; white-space: nowrap; }
-      .brand-blue { color: var(--blue); }
-      .nav-links { display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: .9rem; font-weight: 600; }
-      .nav-links a:not(.button):hover { color: var(--blue); }
-      .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: .72rem 1.15rem; border: 1px solid transparent; border-radius: 5px; font-size: .9rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: background-color .18s ease, color .18s ease, border-color .18s ease; }
-      .button-primary { background: var(--blue); color: #fff; }
-      .button-primary:hover { background: var(--blue-dark); }
-      .button-outline { border-color: #cbd5e1; color: var(--ink); background: transparent; }
-      .button-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
-      .hero { padding: 50px 0 82px; border-bottom: 1px solid var(--line); }
-      .hero-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr); align-items: center; gap: 64px; }
-      .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-      .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
-      h1, h2, h3, p { margin-top: 0; }
-      h1, h2, h3 { font-family: "Manrope", sans-serif; }
-      h1 { max-width: 760px; margin: 23px 0 20px; font-size: clamp(2.7rem, 5.2vw, 4.65rem); font-weight: 600; line-height: 1.08; letter-spacing: -.065em; }
-      .hero-copy { max-width: 660px; margin-bottom: 28px; color: var(--muted); font-size: 1.08rem; }
-      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-      .threat-visual { position: relative; min-height: 380px; display: grid; place-items: center; overflow: hidden; border: 1px solid #dbeafe; border-radius: 18px; background: radial-gradient(ellipse at center, #fff 0%, #f7faff 72%, #eff6ff 100%); }
-      .threat-visual::before, .threat-visual::after { position: absolute; width: 275px; height: 275px; border: 1px solid rgba(37,99,235,.10); border-radius: 50%; content: ""; }
-      .threat-visual::after { width: 215px; height: 215px; border-color: rgba(37,99,235,.13); }
-      .threat-art { position: relative; z-index: 1; width: min(100%, 440px); height: auto; }
-      .threat-caption { position: absolute; right: 14px; bottom: 12px; left: 14px; z-index: 2; color: #64748b; text-align: center; font-size: .68rem; }
-      .section { padding: 48px 0 80px; }
-      .section-soft { background: var(--soft); border-block: 1px solid var(--line); }
-      .section-heading { max-width: 690px; margin-bottom: 40px; }
-      .section-heading h2 { margin: 14px 0 12px; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -.06em; }
-      .section-heading p { margin-bottom: 0; color: var(--muted); font-size: 1.02rem; }
-      .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-      .feature { padding: 30px 28px 32px; }
-      .feature + .feature { border-left: 1px solid var(--line); }
-      .feature-number { display: block; margin-bottom: 30px; color: #6091e8; font-family: "Manrope", sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
-      .feature h3 { margin-bottom: 10px; font-size: 1.22rem; font-weight: 700; letter-spacing: -.04em; }
-      .feature p { margin-bottom: 0; color: var(--muted); font-size: .95rem; }
-      .mission-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
-      .mission-layout .section-heading { margin-bottom: 0; }
-      .mission-points { border-top: 1px solid var(--line); }
-      .mission-point { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 23px 0; border-bottom: 1px solid var(--line); }
-      .mission-point strong { color: var(--blue); font-size: .85rem; }
-      .mission-point p { margin-bottom: 0; color: var(--muted); }
-      .milestones { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
-      .milestone { min-height: 190px; padding: 28px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
-      .milestone-label { display: block; margin-bottom: 19px; color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-      .milestone h3 { margin-bottom: 8px; font-size: 1.5rem; font-weight: 700; letter-spacing: -.05em; }
-      .milestone p { margin-bottom: 0; color: var(--muted); }
-      .team-line { margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .94rem; }
-      .team-line strong { color: var(--ink); }
-      .contact-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
-      .contact-layout .section-heading { margin-bottom: 0; }
-      .contact-note { margin-top: 20px; color: var(--muted); font-size: .92rem; }
-      .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 16px; padding: 28px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
-      .form-field { min-width: 0; display: flex; flex-direction: column; gap: 7px; }
-      .form-field-full { grid-column: 1 / -1; }
-      .form-field label { color: var(--ink); font-size: .86rem; font-weight: 700; }
-      .form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; color: var(--ink); font: inherit; line-height: 1.4; }
-      .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--blue); }
-      .form-field textarea { min-height: 118px; resize: vertical; }
-      .form-field input::placeholder, .form-field textarea::placeholder { color: #8997a8; }
-      .form-submit { grid-column: 1 / -1; justify-self: start; }
-      .privacy-note { grid-column: 1 / -1; margin: -8px 0 0; color: var(--muted); font-size: .78rem; }
-      .site-footer { padding: 32px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
-      .footer-content { display: flex; justify-content: space-between; gap: 24px; }
-      .footer-company { color: var(--ink); font-weight: 700; }
-      .footer-contact { text-align: right; }
-      @media (max-width: 850px) { .hero-layout { grid-template-columns: 1fr; gap: 42px; } .threat-visual { min-height: 340px; } .feature-grid { grid-template-columns: 1fr; } .feature + .feature { border-top: 1px solid var(--line); border-left: 0; } .feature-number { margin-bottom: 16px; } .mission-layout, .contact-layout { grid-template-columns: 1fr; gap: 35px; } }
-      @media (max-width: 620px) { .container { width: min(var(--max-width), calc(100% - 36px)); } .navigation { min-height: 68px; flex-wrap: wrap; gap: 8px; padding: 12px 0; } .nav-links { width: 100%; justify-content: space-between; gap: 12px; font-size: .8rem; } .nav-links .button { min-height: 38px; padding: .45rem .7rem; font-size: .78rem; } .hero { padding: 42px 0 56px; } h1 { font-size: clamp(2.5rem, 11vw, 3.7rem); } .hero-copy { font-size: 1rem; } .hero-actions .button { width: 100%; } .threat-visual { min-height: 300px; } .section { padding: 40px 0 64px; } .mission-point { grid-template-columns: 1fr; gap: 4px; } .milestones, .contact-form { grid-template-columns: 1fr; } .form-field-full, .form-submit, .privacy-note { grid-column: auto; } .form-submit { width: 100%; } .footer-content { flex-direction: column; } .footer-contact { text-align: left; } }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+      :root { color-scheme: light; --ink:#0f172a; --muted:#64748b; --blue:#2563eb; --blue-dark:#1d4ed8; --blue-light:#eff6ff; --line:#dbe4f0; --canvas:#fff; --soft:#f7faff; --max-width:1160px; }
+      *,*::before,*::after { box-sizing:border-box; }
+      html { scroll-behavior:smooth; scroll-padding-top:56px; }
+      body { margin:0; background:var(--canvas); color:var(--ink); font-family:"DM Sans",sans-serif; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+      a { color:inherit; text-decoration:none; }
+      a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible { outline:3px solid #93c5fd; outline-offset:3px; border-radius:4px; }
+      .container { width:min(var(--max-width),calc(100% - 48px)); margin-inline:auto; }
+      .site-header { position:sticky; top:0; z-index:5; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
+      .navigation { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+      .wordmark { font-family:Manrope,sans-serif; font-size:1.22rem; font-weight:800; letter-spacing:-.07em; white-space:nowrap; }
+      .brand-blue { color:var(--blue); }
+      .nav-links { display:flex; align-items:center; gap:32px; color:var(--muted); font-size:.9rem; font-weight:600; }
+      .nav-links a:not(.button):hover { color:var(--blue); }
+      .button { min-height:46px; display:inline-flex; align-items:center; justify-content:center; padding:.72rem 1.15rem; border:1px solid transparent; border-radius:5px; font-size:.9rem; font-weight:600; line-height:1.2; cursor:pointer; transition:background-color .18s ease,color .18s ease,border-color .18s ease; }
+      .button-primary { background:var(--blue); color:#fff; }
+      .button-primary:hover { background:var(--blue-dark); }
+      .button-outline { border-color:#cbd5e1; color:var(--ink); background:transparent; }
+      .button-outline:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-light); }
+      .hero { padding:50px 0 82px; border-bottom:1px solid var(--line); }
+      .hero-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr); align-items:center; gap:64px; }
+      .eyebrow { display:inline-flex; align-items:center; gap:10px; color:var(--blue); font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+      .eyebrow::before { width:22px; height:1px; background:currentColor; content:""; }
+      h1,h2,h3,p { margin-top:0; }
+      h1,h2,h3 { font-family:Manrope,sans-serif; }
+      h1 { max-width:760px; margin:23px 0 20px; font-size:clamp(2.7rem,5.2vw,4.65rem); font-weight:600; line-height:1.08; letter-spacing:-.065em; }
+      .hero-copy { max-width:660px; margin-bottom:28px; color:var(--muted); font-size:1.08rem; }
+      .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+      .threat-visual { position:relative; min-height:380px; display:grid; place-items:center; overflow:hidden; border:1px solid #dbeafe; border-radius:18px; background:radial-gradient(ellipse at center,#fff 0%,#f7faff 72%,#eff6ff 100%); }
+      .threat-visual::before,.threat-visual::after { position:absolute; width:275px; height:275px; border:1px solid rgba(37,99,235,.10); border-radius:50%; content:""; }
+      .threat-visual::after { width:215px; height:215px; border-color:rgba(37,99,235,.13); }
+      .threat-art { position:relative; z-index:1; width:min(100%,480px); height:auto; }
+      .threat-caption { position:absolute; right:14px; bottom:12px; left:14px; z-index:2; color:#64748b; text-align:center; font-size:.68rem; }
+      .section { padding:48px 0 80px; }
+      .section-soft { background:var(--soft); border-block:1px solid var(--line); }
+      .section-heading { max-width:690px; margin-bottom:40px; }
+      .section-heading h2 { margin:14px 0 12px; font-size:clamp(2rem,3.5vw,3rem); font-weight:600; line-height:1.15; letter-spacing:-.06em; }
+      .section-heading p { margin-bottom:0; color:var(--muted); font-size:1.02rem; }
+      .feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); border-radius:8px; background:#fff; }
+      .feature { padding:30px 28px 32px; }
+      .feature+.feature { border-left:1px solid var(--line); }
+      .feature-number { display:block; margin-bottom:30px; color:#6091e8; font-family:Manrope,sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.12em; }
+      .feature h3 { margin-bottom:10px; font-size:1.22rem; font-weight:700; letter-spacing:-.04em; }
+      .feature p { margin-bottom:0; color:var(--muted); font-size:.95rem; }
+      .mission-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:start; }
+      .mission-layout .section-heading { margin-bottom:0; }
+      .mission-points { border-top:1px solid var(--line); }
+      .mission-point { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:23px 0; border-bottom:1px solid var(--line); }
+      .mission-point strong { color:var(--blue); font-size:.85rem; }
+      .mission-point p { margin-bottom:0; color:var(--muted); }
+      .milestones { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+      .milestone { min-height:190px; padding:28px; border:1px solid var(--line); border-radius:7px; background:#fff; }
+      .milestone-label { display:block; margin-bottom:19px; color:var(--blue); font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+      .milestone h3 { margin-bottom:8px; font-size:1.5rem; font-weight:700; letter-spacing:-.05em; }
+      .milestone p { margin-bottom:0; color:var(--muted); }
+      .team-line { margin:28px 0 0; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:.94rem; }
+      .team-line strong { color:var(--ink); }
+      .contact-layout { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:64px; align-items:start; }
+      .contact-layout .section-heading { margin-bottom:0; }
+      .contact-note { margin-top:20px; color:var(--muted); font-size:.92rem; }
+      .contact-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 16px; padding:28px; border:1px solid var(--line); border-radius:7px; background:#fff; }
+      .form-field { min-width:0; display:flex; flex-direction:column; gap:7px; }
+      .form-field-full { grid-column:1/-1; }
+      .form-field label { color:var(--ink); font-size:.86rem; font-weight:700; }
+      .form-field input,.form-field select,.form-field textarea { width:100%; min-height:46px; padding:11px 12px; border:1px solid #cbd5e1; border-radius:4px; background:#fff; color:var(--ink); font:inherit; line-height:1.4; }
+      .form-field input:focus,.form-field select:focus,.form-field textarea:focus { border-color:var(--blue); }
+      .form-field textarea { min-height:118px; resize:vertical; }
+      .form-field input::placeholder,.form-field textarea::placeholder { color:#8997a8; }
+      .form-submit { grid-column:1/-1; justify-self:start; }
+      .privacy-note { grid-column:1/-1; margin:-8px 0 0; color:var(--muted); font-size:.78rem; }
+      .site-footer { padding:32px 0 38px; border-top:1px solid var(--line); color:var(--muted); font-size:.86rem; }
+      .footer-content { display:flex; justify-content:space-between; gap:24px; }
+      .footer-company { color:var(--ink); font-weight:700; }
+      .footer-contact { text-align:right; }
+      @media(max-width:850px) { .hero-layout{grid-template-columns:1fr;gap:42px}.threat-visual{min-height:340px}.feature-grid{grid-template-columns:1fr}.feature+.feature{border-top:1px solid var(--line);border-left:0}.feature-number{margin-bottom:16px}.mission-layout,.contact-layout{grid-template-columns:1fr;gap:35px} }
+      @media(max-width:620px) { .container{width:min(var(--max-width),calc(100% - 36px))}.navigation{min-height:68px;flex-wrap:wrap;gap:8px;padding:12px 0}.nav-links{width:100%;justify-content:space-between;gap:12px;font-size:.8rem}.nav-links .button{min-height:38px;padding:.45rem .7rem;font-size:.78rem}.hero{padding:42px 0 56px}h1{font-size:clamp(2.5rem,11vw,3.7rem)}.hero-copy{font-size:1rem}.hero-actions .button{width:100%}.threat-visual{min-height:300px}.section{padding:40px 0 64px}.mission-point{grid-template-columns:1fr;gap:4px}.milestones,.contact-form{grid-template-columns:1fr}.form-field-full,.form-submit,.privacy-note{grid-column:auto}.form-submit{width:100%}.footer-content{flex-direction:column}.footer-contact{text-align:left} }
+      @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important} }
     </style>
   </head>
   <body>
     <header class="site-header"><nav class="container navigation" aria-label="Main navigation"><a class="wordmark" href="#top" aria-label="EnABle AB home">En<span class="brand-blue">AB</span>le <span class="brand-blue">AB</span></a><div class="nav-links"><a href="#platform">Platform</a><a href="#mission">Approach</a><a href="#milestones">Milestones</a><a class="button button-primary" href="#contact">Request a meeting</a></div></nav></header>
     <main id="top">
       <section class="hero"><div class="container hero-layout"><div><span class="eyebrow">Universal antiviral theranostics</span><h1>A new angle on antiviral protection.</h1><p class="hero-copy">EnABle AB develops high-affinity, dual-targeting protein platforms that use viral host-entry mechanisms to bring therapeutics and diagnostics together.</p><div class="hero-actions"><a class="button button-primary" href="#platform">Explore our platform</a><a class="button button-outline" href="#milestones">Our milestones</a></div></div>
-        <div class="threat-visual" role="img" aria-label="Small, subtly colored illustrations of SARS-CoV-2, HBV, and Ebola, each with a distinct shape, beside a protective shield with a check mark">
+        <div class="threat-visual" role="img" aria-label="Illustrations of SARS-CoV-2, HBV, and Ebola, with different virus shapes beside a protective shield">
           <svg class="threat-art" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="shieldFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
-              <linearGradient id="virusFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bfdbfe"/><stop offset="1" stop-color="#60a5fa"/></linearGradient>
-              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#1e40af" flood-opacity=".14"/></filter>
-            </defs>
-            <!-- SARS-CoV-2: compact circular body with short, rounded crown spikes -->
-            <g transform="translate(105 112)" opacity=".8">
-              <g stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round"><path d="M0-36v-10M25-25l7-7M36 0h10M25 25l7 7M0 36v10M-25 25l-7 7M-36 0h-10M-25-25l-7-7M14-33l4-9M33-14l9-4M33 14l9 4M14 33l4 9M-14 33l-4 9M-33 14l-9 4M-33-14l-9-4M-14-33l-4-9"/></g>
-              <circle r="35" fill="url(#virusFill)" stroke="#2563eb" stroke-width="2.5"/>
-              <g fill="#dbeafe"><circle cx="-14" cy="-12" r="4"/><circle cx="12" cy="-18" r="3.5"/><circle cx="19" cy="7" r="4"/><circle cx="-8" cy="19" r="3.5"/><circle cx="3" cy="4" r="3"/><circle cx="-22" cy="4" r="2.5"/></g>
-              <g fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"><circle cy="-46" r="4"/><circle cx="32" cy="-32" r="4"/><circle cx="46" r="4"/><circle cx="32" cy="32" r="4"/><circle cy="46" r="4"/><circle cx="-32" cy="32" r="4"/><circle cx="-46" r="4"/><circle cx="-32" cy="-32" r="4"/></g>
-            </g>
-            <!-- HBV: small, angular capsid with a sparse diamond-like surface pattern -->
-            <g transform="translate(377 116) scale(.86)" opacity=".8">
-              <path d="M0-42 34-24 39 15 18 39-18 39-39 15-34-24z" fill="url(#virusFill)" stroke="#2563eb" stroke-width="3"/>
-              <g fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"><path d="m0-31 7 9-7 9-7-9z"/><path d="m-22-19 7 9-7 9-7-9z"/><path d="m22-19 7 9-7 9-7-9z"/><path d="m-28 7 7 9-7 9-7-9z"/><path d="m0 1 7 9-7 9-7-9z"/><path d="m28 7 7 9-7 9-7-9z"/><path d="m-16 25 6 7-6 7-6-7z"/><path d="m16 25 6 7-6 7-6-7z"/></g>
-            </g>
-            <!-- Ebola: slender, curved filament retains its characteristic worm-like silhouette -->
-            <g transform="translate(105 279)" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".76">
-              <path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#2563eb" stroke-width="15"/>
-              <path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#bfdbfe" stroke-width="9"/>
-              <path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#eff6ff" stroke-width="2" stroke-dasharray="2 5"/>
-            </g>
-            <!-- Shield/check remains the focal defense symbol; no arrows -->
+            <defs><linearGradient id="shieldFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient><linearGradient id="virusFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bfdbfe"/><stop offset="1" stop-color="#60a5fa"/></linearGradient><filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#1e40af" flood-opacity=".14"/></filter></defs>
+            <g transform="translate(105 112)" opacity=".8"><g stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round"><path d="M0-36v-10M25-25l7-7M36 0h10M25 25l7 7M0 36v10M-25 25l-7 7M-36 0h-10M-25-25l-7-7M14-33l4-9M33-14l9-4M33 14l9 4M14 33l4 9M-14 33l-4 9M-33 14l-9 4M-33-14l-9-4M-14-33l-4-9"/></g><circle r="35" fill="url(#virusFill)" stroke="#2563eb" stroke-width="2.5"/><g fill="#dbeafe"><circle cx="-14" cy="-12" r="4"/><circle cx="12" cy="-18" r="3.5"/><circle cx="19" cy="7" r="4"/><circle cx="-8" cy="19" r="3.5"/><circle cx="3" cy="4" r="3"/><circle cx="-22" cy="4" r="2.5"/></g><g fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"><circle cy="-46" r="4"/><circle cx="32" cy="-32" r="4"/><circle cx="46" r="4"/><circle cx="32" cy="32" r="4"/><circle cy="46" r="4"/><circle cx="-32" cy="32" r="4"/><circle cx="-46" r="4"/><circle cx="-32" cy="-32" r="4"/></g></g>
+            <!-- Centered, symmetric HBV capsid with balanced pattern inside the outline -->
+            <g transform="translate(377 116)" opacity=".8"><path d="M0-40 34-20 34 20 0 40-34 20-34-20Z" fill="url(#virusFill)" stroke="#2563eb" stroke-width="3"/><g fill="#93c5fd" stroke="#2563eb" stroke-width="1.4"><path d="M0-29 7-20 0-11-7-20Z"/><path d="M-20-18-13-9-20 0-27-9Z"/><path d="M20-18 27-9 20 0 13-9Z"/><path d="M0-9 7 0 0 9-7 0Z"/><path d="M-20 0-13 9-20 18-27 9Z"/><path d="M20 0 27 9 20 18 13 9Z"/><path d="M0 11 7 20 0 29-7 20Z"/></g></g>
+            <g transform="translate(105 279)" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".76"><path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#2563eb" stroke-width="15"/><path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#bfdbfe" stroke-width="9"/><path d="M-43 5C-53-13-42-32-29-30-14-28-25-3-13 12 0 27 16 15 8 0 0-15 14-30 29-22 44-14 37 8 25 21" stroke="#eff6ff" stroke-width="2" stroke-dasharray="2 5"/></g>
             <g filter="url(#softShadow)"><path d="M240 82 314 110v63c0 54-29 92-74 119-45-27-74-65-74-119v-63z" fill="url(#shieldFill)"/><path d="M240 98 298 120v52c0 42-22 74-58 96-36-22-58-54-58-96v-52z" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.58)" stroke-width="2"/><path d="m208 178 22 22 44-48" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <g font-family="Arial,sans-serif" font-size="16.5" font-weight="700" letter-spacing=".15" fill="#536985" text-anchor="middle"><text x="105" y="31">SARS-CoV-2</text><text x="377" y="43">HBV</text><text x="105" y="337">Ebola</text></g>
+            <g font-family="Arial,sans-serif" font-size="16.5" font-weight="700" letter-spacing=".15" fill="#536985" text-anchor="middle"><text x="105" y="31">SARS-CoV-2</text><text x="377" y="31">HBV</text><text x="105" y="337">Ebola</text></g>
           </svg>
-          <span class="threat-caption">A receptor-decoy shield concept for diverse viral threats</span>
+          <span class="threat-caption">Illustrative viral threats; receptor-decoy programs are evaluated individually.</span>
         </div>
       </div></section>
       <section id="platform" class="section"><div class="container"><div class="section-heading"><span class="eyebrow">The platform</span><h2>Designed around the way viruses enter cells.</h2><p>Our receptor-decoy approach focuses on host-entry mechanisms, which allows a broader and more stable antiviral strategy than targeting rapidly mutating viral epitopes.</p></div><div class="feature-grid"><article class="feature"><span class="feature-number">01 / TARGETING</span><h3>Host-receptor decoys</h3><p>Targeting host-entry receptors rather than viral epitopes that can change through mutation or immune escape.</p></article><article class="feature"><span class="feature-number">02 / THERANOSTICS</span><h3>One platform, dual utility</h3><p>The same high-affinity Receptor-Fc protein is designed to serve as a therapeutic neutralizer and a diagnostic capture molecule.</p></article><article class="feature"><span class="feature-number">03 / PIPELINE</span><h3>Validated foundations</h3><p>COVID-19 proof of concept completed, with US and Korean patents granted. Pipeline programs continue across multiple viral threats.</p></article></div></div></section>
